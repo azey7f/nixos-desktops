@@ -1,0 +1,4 @@
+[submodule "core"]
+	path = core
+	url = https://git.azey.net/azey/nixos-core
+	branch = main
