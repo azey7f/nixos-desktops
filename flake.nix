@@ -3,32 +3,15 @@
     self.submodules = true;
     core.url = "./core";
 
-    ### Globally auto-updated ###
-    home-manager.url = "github:nix-community/home-manager/release-25.05";
-    home-manager.inputs.nixpkgs.follows = "desktop";
-
-    nur.url = "github:nix-community/NUR";
-    nur.inputs.nixpkgs.follows = "desktop";
-
-    rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor"; # auto-update becacause I really can't be bothered typing the whole thing
-
-    ### Manually updated ###
-
-    # Desktops
-    desktop.url = "nixpkgs/nixos-unstable";
-
-    home-manager-desktop.url = "github:nix-community/home-manager/master";
-    home-manager-desktop.inputs.nixpkgs.follows = "desktop";
-
+    # laptop hw stuff
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    # pretty cursor for hyprland (!!)
+    rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
   };
 
   outputs = {
     self,
     core,
-    home-manager,
-    desktop,
-    home-manager-desktop,
     nixos-hardware,
     nur,
     rose-pine-hyprcursor,
@@ -38,22 +21,20 @@
     formatter.x86_64-linux = core.inputs.nixpkgs.legacyPackages.x86_64-linux.alejandra;
     formatter.aarch64-linux = core.inputs.nixpkgs.legacyPackages.aarch64-linux.alejandra;
 
-    ### Hosts ###
-
     nixosConfigurations = core.mkHostConfigurations {
       path = ./hosts;
 
-      channels.nixpkgs.ref = desktop;
+      channels.nixpkgs.ref = core.inputs.nixpkgs-unstable;
       channels.nixpkgs.config.allowUnfree = true;
       channels.nixpkgs.config.cudaSupport = true;
 
-      channels.home-manager.ref = home-manager-desktop;
+      channels.home-manager.ref = core.inputs.home-manager-unstable;
 
       specialArgs = {inherit inputs outputs;};
 
       modules = [
         ./config
-        nur.modules.nixos.default
+        ./services
         ./preset.nix
       ];
     };

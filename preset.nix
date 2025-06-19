@@ -2,11 +2,10 @@
 with lib; {
   az.core = {
     users.main.enable = mkDefault true;
-    firmware.enable = mkDefault true;
     # per-host: boot.loader.<name>.enable = mkDefault true;
   };
 
-  #TODO svc.endlessh.enable = mkDefault true;
+  az.svc.endlessh.enable = mkDefault true;
 
   az.desktop = {
     programs.enable = mkDefault true;
@@ -19,7 +18,7 @@ with lib; {
     # per-host: graphics.<name>.enable = true;
 
     environment.hyprland.inputDevices = {
-      "logitech-gaming-mouse-g502" = {
+      "logitech-gaming-mouse-g502" = mkDefault {
         accel_profile = "flat";
         sensitivity = -0.35;
       };

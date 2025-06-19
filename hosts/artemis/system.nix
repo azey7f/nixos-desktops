@@ -59,8 +59,7 @@
     };
   };
 
-  /*
-    TODO svc = {
+  az.svc = {
     ssh = {
       enable = true;
       openFirewall = true;
@@ -73,7 +72,6 @@
       monitor = 1;
     };
   };
-  */
 
   environment.systemPackages = with pkgs; [
     androidStudioPackages.canary
