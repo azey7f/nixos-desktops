@@ -12,12 +12,10 @@
   outputs = {
     self,
     core,
-    nixos-hardware,
-    nur,
-    rose-pine-hyprcursor,
+    ...
   } @ inputs: let
     inherit (self) outputs;
-  in {
+  in rec {
     formatter.x86_64-linux = core.inputs.nixpkgs.legacyPackages.x86_64-linux.alejandra;
     formatter.aarch64-linux = core.inputs.nixpkgs.legacyPackages.aarch64-linux.alejandra;
 
@@ -38,5 +36,7 @@
         ./preset.nix
       ];
     };
+
+    hydraJobs = core.mkHydraJobs nixosConfigurations;
   };
 }
