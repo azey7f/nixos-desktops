@@ -1,16 +1,12 @@
 {
   lib,
+  azLib,
   config,
   ...
 }: let
   inherit (lib) mkOption types;
   cfg = config.az.desktop.environment.hyprland;
 in {
-  /*
-    options.az.desktop.environment.hyprland.services.hyprlock = {
-  };
-  */
-
   config = lib.mkIf cfg.enable {
     home-manager.users =
       lib.attrsets.mapAttrs (name: _: {
@@ -27,7 +23,7 @@ in {
             auth."fingerprint:enabled" = true;
 
             background = {
-              path = "${./hyprpaper/wallpapers/rocket.png}";
+              path = "${../../wallpapers/rocket.png}";
               blur_passes = 2;
             };
 

@@ -5,20 +5,13 @@
   ...
 }: let
   inherit (lib) mkOption types;
-  cfg = config.az.desktop.environment.kde;
+  cfg = config.az.desktop.environment;
 in {
   options.az.desktop.environment.kde = with azLib.opt; {
     session = optStr "plasma";
-    autoLogin = {
-      enable = optBool (cfg.autoLogin.user != null);
-      user = mkOption {
-        type = with types; nullOr str;
-        default = null;
-      };
-    };
   };
 
-  config = lib.mkIf cfg.enable {
+  config = lib.mkIf cfg.kde.enable {
     services.xserver.xkb.variant = "colemak";
     services.xserver.enable = true;
 
@@ -29,14 +22,16 @@ in {
       sddm.enable = true;
       sddm.wayland.enable = true;
 
-      defaultSession = cfg.session;
+      defaultSession = cfg.kde.session;
 
       # autoLogin.user = "main";
       sddm.settings.Autologin = lib.mkIf cfg.autoLogin.enable {
-        Session = "${cfg.session}.desktop";
+        Session = "${cfg.kde.session}.desktop";
         User = cfg.autoLogin.user;
       };
     };
+
+    systemd.services."getty@tty1" = lib.mkIf cfg.autoLogin.enable (lib.mkForce {}); # don't autologin on TTY
 
     environment.sessionVariables.NIXOS_OZONE_WL = 1;
 

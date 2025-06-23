@@ -1,12 +1,14 @@
 {
   pkgs,
   lib,
+  azLib,
   config,
   ...
 }: let
   inherit (lib) mkOption types;
-  cfg = config.az.desktop.environment.hyprland;
+  cfg = config.az.desktop.programs.tofi;
 in {
+  options.az.desktop.programs.tofi.enable = azLib.opt.optBool false;
   config = lib.mkIf cfg.enable {
     home-manager.users =
       lib.attrsets.mapAttrs (name: _: {

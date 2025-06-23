@@ -5,10 +5,10 @@
   ...
 }:
 with lib; let
-  tofi = import ./scripts/tofi.nix pkgs;
-  functionKeys = import ./scripts/function-keys.nix pkgs;
+  tofi = import ../scripts/tofi.nix pkgs;
+  functionKeys = import ../scripts/function-keys.nix pkgs;
 
-  cfg = config.az.desktop.environment.hyprland.binds;
+  cfg = config.az.desktop.binds;
 in ''
   $mainMod = SUPER
 

@@ -7,6 +7,10 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     # pretty cursor for hyprland (!!)
     rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
+
+    # niri
+    niri.url = "github:sodiboo/niri-flake";
+    niri.inputs.nixpkgs.follows = "core/nixpkgs-unstable";
   };
 
   outputs = {
@@ -31,6 +35,7 @@
       specialArgs = {inherit inputs outputs;};
 
       modules = [
+        inputs.niri.nixosModules.niri
         ./config
         ./services
         ./preset.nix

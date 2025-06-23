@@ -1,19 +1,49 @@
 {
+  pkgs,
   lib,
+  azLib,
   config,
   ...
 }: let
   inherit (lib) mkOption types;
-  cfg = config.az.desktop.environment.hyprland;
+  cfg = config.az.desktop.programs.waybar;
 in {
-  options.az.desktop.environment.hyprland.services.waybar = {
-    diskPath = mkOption {
-      type = types.str;
-      default = "/home";
-    };
+  options.az.desktop.programs.waybar = with azLib.opt; {
+    enable = optBool false;
+    diskPath = optStr "/home";
     tempSensor = mkOption {
       type = with types; nullOr str;
       default = null;
+    };
+
+    margin = mkOpt types.numbers.nonnegative 0;
+    modules = {
+      left = mkOption {
+        type = with types; listOf str;
+        default = [
+          "group/power"
+          "clock"
+          "group/hardware"
+          "mpris"
+        ];
+      };
+      center = mkOption {
+        type = with types; listOf str;
+        default = [];
+      };
+      right = mkOption {
+        type = with types; listOf str;
+        default = [
+          #"cava"
+          "tray"
+          "network"
+          "bluetooth"
+          "privacy"
+          "group/backlight"
+          "group/audio"
+          "battery"
+        ];
+      };
     };
   };
 
@@ -27,36 +57,20 @@ in {
               layer = "top";
               position = "top";
               height = 0;
-              margin-left = 10;
-              margin-right = 10;
-              margin-top = 10;
+              margin-left = cfg.margin;
+              margin-right = cfg.margin;
+              margin-top = cfg.margin;
 
-              modules-left = [
-                "group/power"
-                "clock"
-                "group/hardware"
-                "mpris"
-              ];
-              modules-center = ["hyprland/window"];
-              modules-right = [
-                #"cava"
-                "tray"
-                "network"
-                "bluetooth"
-                "privacy"
-                "hyprland/language"
-                "group/backlight"
-                "group/audio"
-                "battery"
-                "hyprland/workspaces"
-              ];
+              modules-left = cfg.modules.left;
+              modules-center = cfg.modules.center;
+              modules-right = cfg.modules.right;
 
               "group/hardware" = {
                 orientation = "inherit";
                 modules = [
                   "cpu"
                   (
-                    if cfg.services.waybar.tempSensor != null
+                    if cfg.tempSensor != null
                     then "temperature"
                     else null
                   )
@@ -71,7 +85,7 @@ in {
                 interval = 1;
               };
               temperature = {
-                hwmon-path = cfg.services.waybar.tempSensor or "";
+                hwmon-path = cfg.tempSensor or "";
                 format = "{temperatureC}°C ";
               };
               memory = {
@@ -80,7 +94,7 @@ in {
               };
               disk = {
                 format = "{used} 󰋊 {percentage_used}%";
-                path = cfg.services.waybar.diskPath;
+                path = cfg.diskPath;
               };
 
               "group/backlight" = {
@@ -173,6 +187,11 @@ in {
                   activated = "";
                   deactivated = "";
                 };
+              };
+
+              "niri/language" = {
+                format-en = "en-us";
+                format-en-colemak = "clmk";
               };
 
               "hyprland/window".format = "{}";
@@ -348,7 +367,6 @@ in {
 
             #workspaces button.focused {
                 color: #a6adc8;
-                background: #eba0ac;
                 border-radius: 10px;
             }
 

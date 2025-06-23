@@ -9,24 +9,9 @@
 with lib; let
   cfg = config.az.desktop.environment.hyprland;
 in {
-  imports = azLib.scanPaths [./programs];
+  imports = azLib.scanPath ./programs;
 
   options.az.desktop.environment.hyprland = with azLib.opt; {
-    binds = {
-      volumeSteps = {
-        large = optStr "25%";
-        normal = optStr "5%";
-        small = optStr "1%";
-        precise = optStr "0.1%";
-      };
-      brightnessSteps = {
-        large = optStr "25%";
-        normal = optStr "5%";
-        small = optStr "1%";
-        precise = optStr "1";
-      };
-    };
-
     monitors = mkOption {
       type = with types;
         attrsOf (submodule ({name, ...}: {
@@ -58,6 +43,29 @@ in {
   };
 
   config = mkIf cfg.enable {
+    az.desktop.programs = {
+      clipse.enable = true;
+      dunst.enable = true;
+      tofi.enable = true;
+      waybar = {
+        enable = true;
+        margin = 10;
+        modules.center = ["hyprland/window"];
+        modules.right = [
+          #"cava"
+          "tray"
+          "network"
+          "bluetooth"
+          "privacy"
+          "hyprland/language"
+          "group/backlight"
+          "group/audio"
+          "battery"
+          "hyprland/workspaces"
+        ];
+      };
+    };
+
     environment.systemPackages = with pkgs; [
       tofi
       hyprpicker
@@ -121,7 +129,7 @@ in {
             env = lib.mapAttrsToList (name: value: "${name},${value}") config.home-manager.users.${name}.home.sessionVariables;
 
             exec-once = [
-              "systemctl start --user waybar"
+              "systemctl restart --user waybar"
               #"wl-clip-persist --clipboard regular"
               #"wl-paste --watch cliphist store"
               "clipse -listen"

@@ -5,7 +5,7 @@
 }:
 with lib; let
   cfg = config.az.desktop.environment.hyprland;
-  wallpapers = ./wallpapers;
+  wallpapers = ../../wallpapers;
 in {
   options.az.desktop.environment.hyprland.services.hyprpaper = {
     preload = mkOption {

@@ -1,11 +1,13 @@
 {
   lib,
+  azLib,
   config,
   ...
 }: let
   inherit (lib) mkOption types;
-  cfg = config.az.desktop.environment.hyprland;
+  cfg = config.az.desktop.programs.clipse;
 in {
+  options.az.desktop.programs.clipse.enable = azLib.opt.optBool false;
   config = lib.mkIf cfg.enable {
     home-manager.users =
       lib.attrsets.mapAttrs (name: _: {

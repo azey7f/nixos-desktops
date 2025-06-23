@@ -4,7 +4,8 @@
   pkgs,
   modulesPath,
   ...
-}: {
+}: let
+in {
   imports = [
     (modulesPath + "/profiles/qemu-guest.nix")
   ];
@@ -24,10 +25,46 @@
     graphics.nvidia.enable = true;
     #boot.plymouth.enable = true;
 
-    environment.kde = lib.mkIf (config.specialisation != {}) {
-      enable = true;
+    binds.volumeSteps = {
+      large = "10%";
+      normal = "2%";
+      small = "0.5%";
+    };
+
+    environment = {
+      kde.enable = config.specialisation != {};
       autoLogin.user = "main";
     };
+  };
+
+  specialisation.Niri.configuration.az.desktop.environment.niri = let
+    primaryM = "PNP(AOC) 32G1WG4 0x00001165";
+    secondaryM = "Microstep MSI MAG275R 0x0000037E";
+  in {
+    enable = true;
+    monitors = {
+      ${primaryM} = {
+        mode = {
+          width = 1920;
+          height = 1080;
+          refresh = 144.001;
+        };
+        position.x = 1920;
+        position.y = 0;
+        focus-at-startup = true;
+      };
+      ${secondaryM} = {
+        mode = {
+          width = 1920;
+          height = 1080;
+          refresh = 60.0;
+        };
+        position.x = 0;
+        position.y = 0;
+      };
+    };
+    swaybg."DP-1" = "space.jpg";
+    swaybg."HDMI-A-1" = "abstract.jpg";
   };
 
   specialisation.Hyprland.configuration.az.desktop.environment.hyprland = let
@@ -35,16 +72,9 @@
     secondaryM = "desc:Microstep MSI MAG275R 0x0000037E";
   in {
     enable = true;
-    autoLogin.user = "main";
-
-    binds.volumeSteps = {
-      large = "10%";
-      normal = "2%";
-      small = "0.5%";
-    };
 
     services.hyprpaper.monitors.${primaryM}.wallpaper = "space.jpg";
-    services.hyprpaper.monitors.${secondaryM}.wallpaper = "abstract-portrait.jpg";
+    services.hyprpaper.monitors.${secondaryM}.wallpaper = "abstract.jpg";
 
     monitors = {
       ${primaryM} = {

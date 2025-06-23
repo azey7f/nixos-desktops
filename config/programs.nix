@@ -77,7 +77,7 @@ in {
           #cava # home-manager'd
           #sage
           kitty
-          firefox
+          librewolf
           vivaldiFixed
           vivaldi-ffmpeg-codecs
           discord
@@ -106,6 +106,7 @@ in {
           kdePackages.xwaylandvideobridge
           nexusmods-app-unfree
           _7zz
+	  pinta
         ]
       );
   };
