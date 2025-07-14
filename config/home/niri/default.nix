@@ -95,7 +95,7 @@ in {
             environment.DISPLAY = ":0";
 
             /*
-              xwayland-satellite = {
+            xwayland-satellite = {
               enable = true;
               path = lib.getExe pkgs.xwayland-satellite-unstable;
             };
@@ -109,7 +109,12 @@ in {
               };
               keyboard.numlock = true;
 
-              focus-follows-mouse.enable = true;
+              focus-follows-mouse = {
+                enable = true;
+                max-scroll-amount = "95%";
+              };
+
+              touchpad.natural-scroll = false;
 
               power-key-handling.enable = false;
             };

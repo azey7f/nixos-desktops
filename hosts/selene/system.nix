@@ -19,25 +19,30 @@
   az.desktop = {
     graphics.amdgpu.enable = true;
 
-    environment.hyprland = lib.mkIf (config.specialisation != {}) {
+    environment.autoLogin.user = "main";
+    programs.waybar.tempSensor = "/sys/class/hwmon/hwmon1/temp1_input";
+
+    environment.niri = lib.mkIf (config.specialisation != {}) {
       enable = true;
-      autoLogin.user = "main";
+      swaybg."eDP-1" = "aurora.jpg";
+    };
+  };
 
-      services.waybar.tempSensor = "/sys/class/hwmon/hwmon1/temp1_input";
-      services.hyprpaper.monitors."".wallpaper = "aurora.jpg";
+  specialisation.Hyprland.configuration.az.desktop.environment.hyprland = {
+    enable = true;
 
-      monitors."desc:BOE NE135A1M-NY1" = {
-        resolution = "2880x1920@120";
-        scale = 2;
-        extraArgs = ", vrr, 1";
-      };
+    services.hyprpaper.monitors."".wallpaper = "aurora.jpg";
+
+    monitors."desc:BOE NE135A1M-NY1" = {
+      resolution = "2880x1920@120";
+      scale = 2;
+      extraArgs = ", vrr, 1";
     };
   };
 
   specialisation.KDE.configuration.az.desktop.environment.kde = {
     enable = true;
     session = "plasmax11";
-    autoLogin.user = "main";
   };
 
   /*

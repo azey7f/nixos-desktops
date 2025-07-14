@@ -106,7 +106,7 @@ in {
           kdePackages.xwaylandvideobridge
           nexusmods-app-unfree
           _7zz
-	  pinta
+          pinta
         ]
       );
   };

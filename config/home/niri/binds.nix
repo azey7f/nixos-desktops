@@ -31,16 +31,16 @@ in
 
     # system
     "Print".action = screenshot;
-    "Mod+X".action = let # lock
-      message =
-        lib.removeSuffix "\n" ''
-              |\__/,|   ('\${" "}
-            _.|o o  |_   ) )
-          -(((---(((--------
-          ${config.networking.fqdn} is currently locked
+    "Mod+X".action = let
+      # lock
+      message = lib.removeSuffix "\n" ''
+            |\__/,|   ('\${" "}
+          _.|o o  |_   ) )
+        -(((---(((--------
+        ${config.networking.fqdn} is currently locked
 
-          press enter to unlock...
-        '';
+        press enter to unlock...
+      '';
     in
       spawn "sh" "-c" ''sudo -E sh -c "USER=$USER VLOCK_MESSAGE=\"`echo -e \\\033[H\\\033[J`${message}\" vlock -ans"'';
 
@@ -52,6 +52,16 @@ in
 
     # programs
     "Mod+T".action = spawn "kitty" "-1";
+
+    # brightness
+    "XF86MonBrightnessDown".action = spawn "sh" "${functionKeys.brightness}" "${cfg.brightnessSteps.normal}-";
+    "XF86MonBrightnessUp".action = spawn "sh" "${functionKeys.brightness}" "+${cfg.brightnessSteps.normal}";
+    "Shift+XF86MonBrightnessDown".action = spawn "sh" "${functionKeys.brightness}" "${cfg.brightnessSteps.small}-";
+    "Shift+XF86MonBrightnessUp".action = spawn "sh" "${functionKeys.brightness}" "+${cfg.brightnessSteps.small}";
+    "Mod+XF86MonBrightnessDown".action = spawn "sh" "${functionKeys.brightness}" "${cfg.brightnessSteps.large}-";
+    "Mod+XF86MonBrightnessUp".action = spawn "sh" "${functionKeys.brightness}" "+${cfg.brightnessSteps.large}";
+    "Ctrl+XF86MonBrightnessDown".action = spawn "sh" "${functionKeys.brightness}" "${cfg.brightnessSteps.precise}-";
+    "Ctrl+XF86MonBrightnessUp".action = spawn "sh" "${functionKeys.brightness}" "+${cfg.brightnessSteps.precise}";
 
     # volume
     "XF86AudioMute".action = spawn "fish" "${functionKeys.mute}";
@@ -82,8 +92,8 @@ in
     # move by shift-scrolling/ctrl-shift-scrolling
     "Mod+Shift+WheelScrollDown".action = move-column-right;
     "Mod+Shift+WheelScrollUp".action = move-column-left;
-    "Mod+Ctrl+Shift+WheelScrollDown".action = move-column-to-workspace-down { focus = true; };
-    "Mod+Ctrl+Shift+WheelScrollUp".action = move-column-to-workspace-up { focus = true; };
+    "Mod+Ctrl+Shift+WheelScrollDown".action = move-column-to-workspace-down {focus = true;};
+    "Mod+Ctrl+Shift+WheelScrollUp".action = move-column-to-workspace-up {focus = true;};
 
     # focus with arrows, move with shift-arrows
     "Mod+Right".action = focus-column-right;
