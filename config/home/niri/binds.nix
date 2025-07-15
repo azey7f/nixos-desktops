@@ -33,14 +33,7 @@ in
     "Print".action = screenshot;
     "Mod+X".action = let
       # lock
-      message = lib.removeSuffix "\n" ''
-            |\__/,|   ('\${" "}
-          _.|o o  |_   ) )
-        -(((---(((--------
-        ${config.networking.fqdn} is currently locked
-
-        press enter to unlock...
-      '';
+      message = lib.removeSuffix "\n" "${cfg.vlock.ascii}${cfg.vlock.message}";
     in
       spawn "sh" "-c" ''sudo -E sh -c "USER=$USER VLOCK_MESSAGE=\"`echo -e \\\033[H\\\033[J`${message}\" vlock -ans"'';
 

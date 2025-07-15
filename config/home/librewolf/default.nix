@@ -99,7 +99,7 @@ in {
                   # medium mode
                   dynamicFilteringString = builtins.readFile ./ublock-rules.txt;
                   #FIXME: gets enabled correctly, but doesn't actually take effect until disabling and re-enabling
-		  #advancedUserEnabled = true;
+                  #advancedUserEnabled = true;
                 };
               };
             };
