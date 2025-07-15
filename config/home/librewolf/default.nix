@@ -23,8 +23,9 @@ in {
           enable = true;
 
           settings = {
-            "browser.tabs.closeWindowWithLastTab " = false;
             "privacy.resistFingerprinting.letterboxing" = cfg.letterboxing;
+            "privacy.clearOnShutdown.history" = false;
+            "privacy.clearOnShutdown.downloads" = false;
             #"identity.fxaccounts.enabled" = true;
           };
 
@@ -46,15 +47,21 @@ in {
                   definedAliases = ["@r"];
                   urls = [{template = "${cfg.searxngUrl}?q={searchTerms}+site:reddit.com";}];
                 };
+
                 nixpkgs = {
                   name = "nixpkgs";
                   definedAliases = ["@np"];
-                  urls = [{template = "https://search.nixos.org/packages?q={searchTerms}";}];
+                  urls = [{template = "https://search.nixos.org/packages?query={searchTerms}";}];
                 };
                 nixos-options = {
                   name = "nixos-options";
                   definedAliases = ["@nx"];
-                  urls = [{template = "https://search.nixos.org/options?q={searchTerms}";}];
+                  urls = [{template = "https://search.nixos.org/options?query={searchTerms}";}];
+                };
+                nixpkgs-issues = {
+                  name = "nixpkgs-issues";
+                  definedAliases = ["@npi" "@nixpkgs"];
+                  urls = [{template = "https://github.com/NixOS/nixpkgs/issues?q={searchTerms}";}];
                 };
               };
 
@@ -64,6 +71,12 @@ in {
                 "nixpkgs"
                 "nixos-options"
               ];
+            };
+
+            settings = {
+              "extensions.autoDisableScopes" = 0;
+              "browser.startup.page" = 3;
+              "browser.tabs.closeWindowWithLastTab " = false;
             };
 
             extensions = {
@@ -78,21 +91,18 @@ in {
                 bitwarden-password-manager
                 darkreader
                 floccus
-		redirectnixwiki
+                redirectnixwiki
               ];
 
               settings = {
                 "uBlock0@raymondhill.net".settings = {
                   # medium mode
-                  advancedUserEnabled = true;
-                  dynamicFilteringString = ''
-                    * * 3p-frame block
-                    * * 3p-script block
-                  '';
+                  dynamicFilteringString = builtins.readFile ./ublock-rules.txt;
+                  #FIXME: gets enabled correctly, but doesn't actually take effect until disabling and re-enabling
+		  #advancedUserEnabled = true;
                 };
               };
             };
-            settings."extensions.autoDisableScopes" = 0;
           };
         };
       })
