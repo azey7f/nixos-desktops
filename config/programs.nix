@@ -40,13 +40,7 @@ in {
     services.tor.client.enable = true;
 
     ### PACKAGES ###
-    environment.systemPackages = with pkgs; let
-      vivaldiFixed = pkgs.vivaldi.overrideAttrs (oldAttrs: {
-        dontWrapQtApps = false;
-        dontPatchELF = true;
-        nativeBuildInputs = oldAttrs.nativeBuildInputs ++ [pkgs.kdePackages.wrapQtAppsHook];
-      });
-    in
+    environment.systemPackages = with pkgs;
       lists.subtractLists cfg.excludedPackages (
         (
           lib.optionals cfg.dev.enable
@@ -74,11 +68,9 @@ in {
           tor
 
           # desktop
-          #cava # home-manager'd
           #sage
           kitty
-          librewolf
-          vivaldiFixed
+          vivaldi
           vivaldi-ffmpeg-codecs
           discord
           mullvad-browser

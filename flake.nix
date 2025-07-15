@@ -11,6 +11,10 @@
     # niri
     niri.url = "github:sodiboo/niri-flake";
     niri.inputs.nixpkgs.follows = "core/nixpkgs-unstable";
+
+    # ff extensions
+    ff-addons.url = "github:osipog/nix-firefox-addons";
+    ff-addons.inputs.nixpkgs.follows = "core/nixpkgs-unstable";
   };
 
   outputs = {
@@ -36,6 +40,7 @@
 
       modules = [
         inputs.niri.nixosModules.niri
+        inputs.ff-addons.nixosModules.default
         ./config
         ./services
         ./preset.nix

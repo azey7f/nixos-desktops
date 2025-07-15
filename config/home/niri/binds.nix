@@ -52,6 +52,7 @@ in
 
     # programs
     "Mod+T".action = spawn "kitty" "-1";
+    "Mod+B".action = spawn "librewolf";
 
     # brightness
     "XF86MonBrightnessDown".action = spawn "sh" "${functionKeys.brightness}" "${cfg.brightnessSteps.normal}-";

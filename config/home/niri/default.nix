@@ -27,6 +27,11 @@ in {
       type = with types; listOf attrs;
       default = [];
     };
+
+    librewolfDefaultWidth = mkOption {
+      type = types.ints.positive;
+      default = 1801; # 1800x900 letterboxing for 1080p
+    };
   };
 
   config = mkIf cfg.enable {
@@ -152,6 +157,10 @@ in {
                   default-column-width.fixed = 622;
                   open-floating = true;
                   open-focused = true;
+                }
+                {
+                  matches = [{app-id = "^librewolf$";}];
+                  default-column-width.fixed = cfg.librewolfDefaultWidth; # match letterboxing
                 }
               ]
               ++ cfg.windowRules;
