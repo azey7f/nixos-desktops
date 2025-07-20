@@ -32,7 +32,10 @@ in {
     };
 
     environment = {
-      kde.enable = config.specialisation != {};
+      kde = lib.mkIf (config.specialisation != {}) {
+        enable = true;
+        session = "plasmax11";
+      };
       autoLogin.user = "main";
     };
   };
