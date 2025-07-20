@@ -12,3 +12,9 @@ steamcommunity.com steamstatic.com * noop
 steamcommunity.com fastly.net * noop
 store.steampowered.com steamstatic.com * noop
 store.steampowered.com fastly.net * noop
+www.deviantart.com deviantart.net * noop
+www.deviantart.com parastorage.com * noop
+gaming.stackexchange.com cloudflare.com * noop
+steamcommunity.com google.com * noop
+steamcommunity.com youtube.com * noop
+

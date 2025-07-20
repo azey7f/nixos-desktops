@@ -98,8 +98,9 @@ in {
                 "uBlock0@raymondhill.net".settings = {
                   # medium mode
                   dynamicFilteringString = builtins.readFile ./ublock-rules.txt;
-                  #FIXME: gets enabled correctly, but doesn't actually take effect until disabling and re-enabling
-                  #advancedUserEnabled = true;
+
+                  #FIXME: gets enabled correctly, but doesn't actually take effect without manually disabling and re-enabling
+                  advancedUserEnabled = true;
                 };
               };
             };
