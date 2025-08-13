@@ -18,6 +18,7 @@ in {
     steam.enable = optBool true;
     steam.openFirewall = optBool false;
     zerotier.enable = optBool false;
+    mullvad.enable = optBool true;
 
     dev.enable = optBool true;
   };
@@ -25,6 +26,9 @@ in {
   config = mkIf cfg.enable {
     ### PROGRAMS ###
     programs.adb.enable = cfg.dev.enable;
+
+    services.mullvad-vpn.enable = cfg.mullvad.enable;
+    services.mullvad-vpn.enableExcludeWrapper = false;
 
     programs.steam = mkIf cfg.steam.enable {
       enable = true;
