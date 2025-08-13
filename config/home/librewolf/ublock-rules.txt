@@ -17,4 +17,12 @@ www.deviantart.com parastorage.com * noop
 gaming.stackexchange.com cloudflare.com * noop
 steamcommunity.com google.com * noop
 steamcommunity.com youtube.com * noop
-
+crypto.stackexchange.com cloudflare.com * noop
+help.zoho.com zohocdn.com * noop
+accounts.zoho.eu zohocdn.com * noop
+mail.zoho.eu zoho.eu * noop
+mail.zoho.eu zohocdn.com * noop
+mailadmin.zoho.eu zohocdn.com * noop
+accounts.zoho.com zohocdn.com * noop
+api-console.zoho.eu zohocdn.com * noop
+gitlab.com cloudflare.com * noop
