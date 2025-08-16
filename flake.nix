@@ -46,7 +46,5 @@
         ./preset.nix
       ];
     };
-
-    hydraJobs = core.mkHydraJobs nixosConfigurations;
   };
 }
