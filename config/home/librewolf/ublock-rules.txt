@@ -26,3 +26,7 @@ mailadmin.zoho.eu zohocdn.com * noop
 accounts.zoho.com zohocdn.com * noop
 api-console.zoho.eu zohocdn.com * noop
 gitlab.com cloudflare.com * noop
+glauca.digital jquery.com * noop
+glauca.digital bootstrapcdn.com * noop
+glauca.digital as207960.net * noop
+hub.docker.com dockerstatic.com * noop
