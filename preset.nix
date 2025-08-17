@@ -14,6 +14,8 @@ with lib; {
     fonts.enable = mkDefault true;
     home.enable = mkDefault true;
 
+    printing.enable = mkDefault false;
+
     # per-host: environment.<name>.enable = true;
     # per-host: graphics.<name>.enable = true;
 
