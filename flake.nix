@@ -40,7 +40,7 @@
 
       modules = [
         inputs.niri.nixosModules.niri
-        inputs.ff-addons.nixosModules.default
+        {nixpkgs.overlays = [inputs.ff-addons.overlays.default];}
         ./config
         ./services
         ./preset.nix
