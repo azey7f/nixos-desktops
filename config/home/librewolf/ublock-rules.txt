@@ -30,3 +30,5 @@ glauca.digital jquery.com * noop
 glauca.digital bootstrapcdn.com * noop
 glauca.digital as207960.net * noop
 hub.docker.com dockerstatic.com * noop
+www.youtube.com * 3p-script noop
+www.youtube.com * 3p-frame noop

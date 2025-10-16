@@ -4,16 +4,14 @@
     core.url = "./core";
 
     # laptop hw stuff
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    # pretty cursor for hyprland (!!)
-    rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
+    nixos-hardware.url = "git+https://git.azey.net/mirrors/nix-community--nixos-hardware?shallow=1&ref=master";
 
     # niri
-    niri.url = "github:sodiboo/niri-flake";
+    niri.url = "git+https://git.azey.net/mirrors/sodiboo--niri-flake?shallow=1&ref=main";
     niri.inputs.nixpkgs.follows = "core/nixpkgs-unstable";
 
     # ff extensions
-    ff-addons.url = "github:osipog/nix-firefox-addons";
+    ff-addons.url = "git+https://git.azey.net/mirrors/osipog--nix-firefox-addons?shallow=1&ref=main";
     ff-addons.inputs.nixpkgs.follows = "core/nixpkgs-unstable";
   };
 

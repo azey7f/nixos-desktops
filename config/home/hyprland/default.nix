@@ -73,7 +73,7 @@ in {
       clipse
       physlock
       hyprsysteminfo
-      inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
+      #inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
       iwgtk
       nautilus
       overskride
@@ -115,7 +115,7 @@ in {
         };
 
         home.sessionVariables.NIXOS_OZONE_WL = "1";
-        home.sessionVariables.HYPRCURSOR_THEME = "rose-pine-hyprcursor";
+        #home.sessionVariables.HYPRCURSOR_THEME = "rose-pine-hyprcursor";
 
         wayland.windowManager.hyprland = {
           enable = true;

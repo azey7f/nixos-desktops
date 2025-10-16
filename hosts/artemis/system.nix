@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  inputs,
   modulesPath,
   ...
 }: let
@@ -24,6 +25,7 @@ in {
   az.desktop = {
     graphics.nvidia.enable = true;
     #boot.plymouth.enable = true;
+    printing.enable = true;
 
     binds.volumeSteps = {
       large = "10%";

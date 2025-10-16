@@ -37,6 +37,14 @@ in {
       gamescopeSession.enable = true;
       extraPackages = with pkgs; [xorg.libSM.out];
     };
+    programs.gamescope = {
+      enable = true;
+      # https://github.com/ValveSoftware/gamescope/issues/1622#issuecomment-2508182530
+      package = pkgs.gamescope.overrideAttrs (_: {
+        NIX_CFLAGS_COMPILE = ["-fno-fast-math"];
+      });
+    };
+
     programs.virt-manager.enable = true;
     services.zerotierone.enable = cfg.zerotier.enable;
 
@@ -81,7 +89,7 @@ in {
           tor-browser-bundle-bin
           obs-studio
           qbittorrent
-          floorp
+          firefox
           vlc
           #qalculate-qt
           speedcrunch
@@ -91,7 +99,8 @@ in {
           tenacity
           prismlauncher
           element-desktop
-          jellyfin-media-player
+          # TODO: https://github.com/NixOS/nixpkgs/issues/437865
+          # jellyfin-media-player
           feishin
           arma3-unix-launcher
           winetricks
