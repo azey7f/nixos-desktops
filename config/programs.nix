@@ -21,6 +21,18 @@ in {
     mullvad.enable = optBool true;
 
     dev.enable = optBool true;
+
+    vlock = {
+      enable = optBool false;
+      ascii = optStr ''
+            |\__/,|   ('\${" "}
+          _.|o o  |_   ) )
+        -(((---(((--------
+        ${config.networking.fqdn} is currently locked
+
+      '';
+      message = optStr "press enter to unlock...";
+    };
   };
 
   config = mkIf cfg.enable {
@@ -51,10 +63,25 @@ in {
     services.tor.enable = true;
     services.tor.client.enable = true;
 
+    # SUID vlock wrapper - also used in debian, should be safe
+    security.wrappers.vlock-main = lib.mkIf cfg.vlock.enable {
+      source = "${pkgs.vlock}/bin/vlock-main"; # -main is the actual ELF bin, bin/vlock is a shell script (ouch my security)
+      owner = "root";
+      group = "wheel";
+      setuid = true;
+      permissions = "u+rx,g+x";
+    };
+
     ### PACKAGES ###
     environment.systemPackages = with pkgs;
       lists.subtractLists cfg.excludedPackages (
         (
+          lib.optionals cfg.vlock.enable
+          [
+            vlock
+          ]
+        )
+        ++ (
           lib.optionals cfg.dev.enable
           [
             gh
@@ -86,7 +113,7 @@ in {
           vivaldi-ffmpeg-codecs
           discord
           mullvad-browser
-          tor-browser-bundle-bin
+          tor-browser
           obs-studio
           qbittorrent
           firefox

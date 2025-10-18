@@ -36,6 +36,7 @@ in {
 
   config = mkIf cfg.enable {
     az.desktop.programs = {
+      vlock.enable = true;
       clipse.enable = true;
       dunst.enable = true;
       tofi.enable = true;
@@ -62,7 +63,6 @@ in {
       tofi
       wl-clipboard
       clipse
-      vlock
       iwgtk
       nautilus
       overskride

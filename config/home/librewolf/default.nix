@@ -21,6 +21,7 @@ in {
       attrsets.mapAttrs (name: _: {
         programs.librewolf = {
           enable = true;
+          package = pkgs.librewolf;
 
           settings = {
             "privacy.resistFingerprinting.letterboxing" = cfg.letterboxing;
@@ -70,13 +71,14 @@ in {
                 "reddit"
                 "nixpkgs"
                 "nixos-options"
+                "nixpkgs-issues"
               ];
             };
 
             settings = {
               "extensions.autoDisableScopes" = 0;
               "browser.startup.page" = 3;
-              "browser.tabs.closeWindowWithLastTab " = false;
+              "browser.tabs.closeWindowWithLastTab" = false;
             };
 
             extensions = {

@@ -95,6 +95,8 @@ in {
   };
 
   az.svc = {
+    usbguard.allowAllPreconnected = true;
+
     ssh = {
       enable = true;
       openFirewall = true;

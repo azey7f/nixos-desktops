@@ -1,4 +1,5 @@
 {
+  pkgs,
   config,
   lib,
   azLib,
@@ -24,17 +25,6 @@ in {
         normal = optStr "5%";
         small = optStr "1%";
         precise = optStr "1";
-      };
-
-      vlock = {
-        ascii = optStr ''
-              |\__/,|   ('\${" "}
-            _.|o o  |_   ) )
-          -(((---(((--------
-          ${config.networking.fqdn} is currently locked
-
-        '';
-        message = optStr "press enter to unlock...";
       };
     };
   };

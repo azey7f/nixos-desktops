@@ -16,7 +16,7 @@ in {
           enable = true;
           functions = {
             "ccat" = "highlight -O truecolor -s neon $argv";
-            "icat" = "kitten icat";
+            "icat" = "kitten icat $argv";
             "iptables" = "sudo iptables $argv";
             "ip6tables" = "sudo ip6tables $argv";
             "nix" = "sudo nix $argv";

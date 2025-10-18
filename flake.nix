@@ -4,14 +4,14 @@
     core.url = "./core";
 
     # laptop hw stuff
-    nixos-hardware.url = "git+https://git.azey.net/mirrors/nix-community--nixos-hardware?shallow=1&ref=master";
+    nixos-hardware.url = "git+https://git.azey.net/mirrors/nix-community--nixos-hardware?ref=master";
 
     # niri
-    niri.url = "git+https://git.azey.net/mirrors/sodiboo--niri-flake?shallow=1&ref=main";
+    niri.url = "git+https://git.azey.net/mirrors/sodiboo--niri-flake?ref=main";
     niri.inputs.nixpkgs.follows = "core/nixpkgs-unstable";
 
     # ff extensions
-    ff-addons.url = "git+https://git.azey.net/mirrors/osipog--nix-firefox-addons?shallow=1&ref=main";
+    ff-addons.url = "git+https://git.azey.net/mirrors/osipog--nix-firefox-addons?ref=main";
     ff-addons.inputs.nixpkgs.follows = "core/nixpkgs-unstable";
   };
 

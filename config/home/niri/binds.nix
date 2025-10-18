@@ -8,6 +8,7 @@
   tofi = import ../scripts/tofi.nix pkgs;
   functionKeys = import ../scripts/function-keys.nix pkgs;
   cfg = config.az.desktop.binds;
+  vlockCfg = config.az.desktop.programs.vlock;
 
   # TODO: for some reason just doing `with config.lib.niri.actions;` doesn't work
   actions = (inputs.niri.homeModules.config args).config.lib.niri.actions;
@@ -33,9 +34,9 @@ in
     "Print".action = screenshot;
     "Mod+X".action = let
       # lock
-      message = lib.removeSuffix "\n" "${cfg.vlock.ascii}${cfg.vlock.message}";
+      message = lib.removeSuffix "\n" "${vlockCfg.ascii}${vlockCfg.message}";
     in
-      spawn "sh" "-c" ''sudo -E sh -c "USER=$USER VLOCK_MESSAGE=\"`echo -e \\\033[H\\\033[J`${message}\" vlock -ans"'';
+      spawn "sh" "-c" ''VLOCK_MESSAGE="`echo -e \\\033[H\\\033[J`${message}" /run/wrappers/bin/vlock-main all new nosysrq'';
 
     # tofi & clipboard
     "Mod+R".action = spawn "sh" "-c" "tofi-drun | xargs niri msg action spawn --";

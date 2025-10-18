@@ -1,11 +1,15 @@
 {lib, ...}:
 with lib; {
+  security.unprivilegedUsernsClone = mkForce true; # steam, firefox, etc
   az.core = {
+    hardening.malloc = mkDefault "libc"; # lots of desktop stuff breaks with hardened allocators
+
     users.main.enable = mkDefault true;
     # per-host: boot.loader.<name>.enable = mkDefault true;
   };
 
   az.svc.endlessh.enable = mkDefault true;
+  az.svc.usbguard.allowIO = mkDefault "first";
 
   az.desktop = {
     programs.enable = mkDefault true;

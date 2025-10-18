@@ -30,13 +30,12 @@
         "narHash": "sha256-eDoSOhxGEm2PykZFa/x9QG5eTH0MJdiJ9aR00VAofXE=",
         "ref": "refs/tags/latest",
         "rev": "ff442f5d1425feb86344c028298548024f21256d",
-        "shallow": true,
+        "revCount": 1236,
         "type": "git",
         "url": "https://git.azey.net/mirrors/nix-community--disko"
       },
       "original": {
         "ref": "refs/tags/latest",
-        "shallow": true,
         "type": "git",
         "url": "https://git.azey.net/mirrors/nix-community--disko"
       }
@@ -50,17 +49,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1760585350,
-        "narHash": "sha256-5a7HknfTW5bMVOyd/M6BmppyTHrGVUfmozAGFXu2z64=",
+        "lastModified": 1760671661,
+        "narHash": "sha256-Li3kto+iXSZUBBLtauJ9vXb6/QCfDbPF10s6B2ozHZo=",
         "ref": "main",
-        "rev": "c42c1627bcd4e8d62bbba05ef9c8cacb7ea6be8f",
-        "shallow": true,
+        "rev": "82519a12244c1580b164b10d49acae0cf27908c4",
+        "revCount": 135,
         "type": "git",
         "url": "https://git.azey.net/mirrors/osipog--nix-firefox-addons"
       },
       "original": {
         "ref": "main",
-        "shallow": true,
         "type": "git",
         "url": "https://git.azey.net/mirrors/osipog--nix-firefox-addons"
       }
@@ -95,13 +93,12 @@
         "narHash": "sha256-uhzsV0Q0I9j2y/rfweWeGif5AWe0MGrgZ/3TjpDYdGA=",
         "ref": "release-25.05",
         "rev": "3b955f5f0a942f9f60cdc9cacb7844335d0f21c3",
-        "shallow": true,
+        "revCount": 4813,
         "type": "git",
         "url": "https://git.azey.net/mirrors/nix-community--home-manager"
       },
       "original": {
         "ref": "release-25.05",
-        "shallow": true,
         "type": "git",
         "url": "https://git.azey.net/mirrors/nix-community--home-manager"
       }
@@ -114,17 +111,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1760500983,
-        "narHash": "sha256-zfY4F4CpeUjTGgecIJZ+M7vFpwLc0Gm9epM/iMQd4w8=",
+        "lastModified": 1760662441,
+        "narHash": "sha256-mlDqR1Ntgs9uYYEAUR1IhamKBO0lxoNS4zGLzEZaY0A=",
         "ref": "master",
-        "rev": "c53e65ec92f38d30e3c14f8d628ab55d462947aa",
-        "shallow": true,
+        "rev": "722792af097dff5790f1a66d271a47759f477755",
+        "revCount": 5607,
         "type": "git",
         "url": "https://git.azey.net/mirrors/nix-community--home-manager"
       },
       "original": {
         "ref": "master",
-        "shallow": true,
         "type": "git",
         "url": "https://git.azey.net/mirrors/nix-community--home-manager"
       }
@@ -142,17 +138,16 @@
         "xwayland-satellite-unstable": "xwayland-satellite-unstable"
       },
       "locked": {
-        "lastModified": 1760575912,
-        "narHash": "sha256-8VNgyBHMJ2paTzWX5EAemGBNB0pCiA6NKJFPZHuzjhY=",
+        "lastModified": 1760700290,
+        "narHash": "sha256-thtIzWn8YB/zXfXR0Cv7pQ0ID8YTc05d9eedk1lu+zI=",
         "ref": "main",
-        "rev": "55d6c441e21c9cd8396d4db03c696c1259d0f62e",
-        "shallow": true,
+        "rev": "b80575644cb2bf9eb0050974dcd988e781ffd340",
+        "revCount": 1659,
         "type": "git",
         "url": "https://git.azey.net/mirrors/sodiboo--niri-flake"
       },
       "original": {
         "ref": "main",
-        "shallow": true,
         "type": "git",
         "url": "https://git.azey.net/mirrors/sodiboo--niri-flake"
       }
@@ -196,23 +191,22 @@
         "narHash": "sha256-2GoxVaKWTHBxRoeUYSjv0AfSOx4qw5CWSFz2b+VolKU=",
         "ref": "master",
         "rev": "9ed85f8afebf2b7478f25db0a98d0e782c0ed903",
-        "shallow": true,
+        "revCount": 2455,
         "type": "git",
         "url": "https://git.azey.net/mirrors/nix-community--nixos-hardware"
       },
       "original": {
         "ref": "master",
-        "shallow": true,
         "type": "git",
         "url": "https://git.azey.net/mirrors/nix-community--nixos-hardware"
       }
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1760423683,
-        "narHash": "sha256-Tb+NYuJhWZieDZUxN6PgglB16yuqBYQeMJyYBGCXlt8=",
+        "lastModified": 1760580664,
+        "narHash": "sha256-/YdfibIrnqXAL8p5kqCU345mzpHoOtuVIkMiI2pF4Dc=",
         "ref": "nixos-25.05",
-        "rev": "a493e93b4a259cd9fea8073f89a7ed9b1c5a1da2",
+        "rev": "98ff3f9af2684f6136c24beef08f5e2033fc5389",
         "shallow": true,
         "type": "git",
         "url": "https://git.azey.net/mirrors/NixOS--nixpkgs"
@@ -226,11 +220,11 @@
     },
     "nixpkgs-stable": {
       "locked": {
-        "lastModified": 1760423683,
-        "narHash": "sha256-Tb+NYuJhWZieDZUxN6PgglB16yuqBYQeMJyYBGCXlt8=",
+        "lastModified": 1760580664,
+        "narHash": "sha256-/YdfibIrnqXAL8p5kqCU345mzpHoOtuVIkMiI2pF4Dc=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "a493e93b4a259cd9fea8073f89a7ed9b1c5a1da2",
+        "rev": "98ff3f9af2684f6136c24beef08f5e2033fc5389",
         "type": "github"
       },
       "original": {
