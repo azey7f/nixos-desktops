@@ -3,8 +3,18 @@ with lib; {
   security.unprivilegedUsernsClone = mkForce true; # steam, firefox, etc
   az.core = {
     hardening.malloc = mkDefault "libc"; # lots of desktop stuff breaks with hardened allocators
+    hardening.enabledModules = mkDefault ["ntfs"];
+    hardening.enabledWrappers = [
+      "unix_chkpwd" # password logins
 
-    users.main.enable = mkDefault true;
+      # setcap, not setuid/gid + required for functionality
+      "gnome-keyring-daemon"
+      "sunshine"
+    ];
+
+    users.main = {
+      wheel = mkDefault true;
+    };
     # per-host: boot.loader.<name>.enable = mkDefault true;
   };
 

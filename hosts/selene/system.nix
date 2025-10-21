@@ -1,4 +1,5 @@
 {
+  pkgs,
   lib,
   config,
   inputs,
@@ -12,6 +13,7 @@
   system.stateVersion = config.system.nixos.release; # / is on tmpfs, so this should be fine
 
   az.core = {
+    locale.largeFont = true;
     firmware.enable = true;
     boot.loader.grub.enable = true;
   };
@@ -21,30 +23,6 @@
 
     environment.autoLogin.user = "main";
     programs.waybar.tempSensor = "/sys/class/hwmon/hwmon1/temp1_input";
-
-    binds.vlock = {
-      ascii = ''
-
-          \;,._                           _,,-
-           \';, '-._ _..--${"''''''"}--.._ __.-',;(
-            \ ';,  ':.  ,   ;.   .   :'  .;' /
-             ; ';;,      .:    :.      ,;;' /
-              \ ';/    \:: :  . ::/    \;' ;       ░██           ░██████     ░██████  ░██     ░██ ░██████████ ░███████
-               ).' __.._'        '_..__ './        ░██          ░██   ░██   ░██   ░██ ░██    ░██  ░██         ░██   ░██
-               /<  \​\ /I',      ,'I\ //   >        ░██         ░██     ░██ ░██        ░██   ░██   ░██         ░██    ░██
-               /\   ';-7/_\ -- /_\7-;'   /\        ░██         ░██     ░██ ░██        ░███████    ░█████████  ░██    ░██
-               //.    ${"'''"}:' ;; ':${"'''"}     /\        ░██         ░██     ░██ ░██        ░██   ░██   ░██         ░██    ░██
-                |/ .  .:' __..__ '.     \|         ░██          ░██   ░██   ░██   ░██ ░██    ░██  ░██         ░██   ░██
-                /\|: ./. '=_  _=' .\   |/\         ░██████████   ░██████     ░██████  ░██     ░██ ░██████████ ░███████
-                   /:(/::.  \/  .::\) /
-                    ////=-v-${"''"}-v-=\\\\​
-                    ///'Nx_\;;/_xN'\​\​\​
-                   / /   ${"''"}w==w${"''"}   \ \​
-                    /                \​
-        -----------------------------------------------------------------------------------------------------------------
-        ${config.networking.fqdn} is currently locked
-      '';
-    };
 
     environment.niri = lib.mkIf (config.specialisation != {}) {
       enable = true;

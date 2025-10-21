@@ -65,6 +65,7 @@ in {
 
     # SUID vlock wrapper - also used in debian, should be safe
     security.wrappers.vlock-main = lib.mkIf cfg.vlock.enable {
+      enable = lib.mkForce true;
       source = "${pkgs.vlock}/bin/vlock-main"; # -main is the actual ELF bin, bin/vlock is a shell script (ouch my security)
       owner = "root";
       group = "wheel";

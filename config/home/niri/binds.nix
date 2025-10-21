@@ -36,7 +36,7 @@ in
       # lock
       message = lib.removeSuffix "\n" "${vlockCfg.ascii}${vlockCfg.message}";
     in
-      spawn "sh" "-c" ''VLOCK_MESSAGE="`echo -e \\\033[H\\\033[J`${message}" /run/wrappers/bin/vlock-main all new nosysrq'';
+      spawn "sh" "-c" ''VLOCK_MESSAGE="`echo -e \\\033[H\\\033[J`${message}" ${config.security.wrapperDir}/vlock-main all new nosysrq'';
 
     # tofi & clipboard
     "Mod+R".action = spawn "sh" "-c" "tofi-drun | xargs niri msg action spawn --";
