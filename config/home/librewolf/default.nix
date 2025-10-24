@@ -86,6 +86,7 @@ in {
               packages = with pkgs.firefoxAddons; [
                 # anti-shittification
                 ublock-origin
+                privacy-badger17
                 sponsorblock
                 return-youtube-dislikes
 
