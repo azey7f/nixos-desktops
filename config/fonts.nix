@@ -15,7 +15,8 @@ in {
   config = let
     fontPkgs = with pkgs; [
       liberation_ttf
-      meslo-lgs-nf
+      terminus_font_ttf
+      unifont
     ];
   in
     mkIf cfg.enable {
@@ -27,7 +28,8 @@ in {
           defaultFonts = {
             serif = ["Liberation Serif"];
             sansSerif = ["Liberation Sans"];
-            monospace = ["MesloLGS NF"];
+            monospace = ["Liberation Mono"];
+            #monospace = ["TerminusTTF"];
           };
         };
       };

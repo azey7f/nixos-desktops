@@ -206,14 +206,14 @@ in {
               };
 
               /*
-                "custom/power" = {
+              "custom/power" = {
                 exec = "cat /sys/class/power_supply/BAT1/power_now 2> /dev/null | numfmt --to-unit=1000000 --format %.3fW";
                 interval = 5;
                 format = "{}";
               };
               */
               /*
-                "custom/keyboard" = {
+              "custom/keyboard" = {
                 exec = "cat /home/main/.kbd-pipe";
                 restart-interval = {
                 };
@@ -221,7 +221,7 @@ in {
               };A
               */
               /*
-                "custom/media" = {
+              "custom/media" = {
                 format = "{icon}{}";
                 return-type = "json";
                 format-icons = {
@@ -241,6 +241,7 @@ in {
                 status-icons = {
                   paused = "⏸";
                 };
+                dynamic-len = 32;
               };
 
               privacy = {
@@ -254,7 +255,7 @@ in {
                     tooltip-icon-size = 24;
                   }
                   /*
-                    {
+                  {
                     type = "audio-out";
                     tooltip = true;
                     tooltip-icon-size = 24;
@@ -332,9 +333,8 @@ in {
             * {
                 border: none;
                 border-radius: 0;
-                font-family: MesloLGS Nerd Font;
-                font-weight: bold;
-                font-size: 13px;
+                font-family: Unifont; /* terminus doesn't scale properly */
+                font-size: 12pt;
                 min-height: 0;
             }
 
@@ -383,7 +383,7 @@ in {
             }
 
             #mpris {
-              font-size: 10px;
+              font-size: 12pt;
             }
 
             #custom-power,

@@ -22,7 +22,7 @@ in {
           result-spacing = 25
           background-color = #000A
           num-results = 5
-          font = ${pkgs.meslo-lgs-nf}/share/fonts/truetype/MesloLGS NF Regular.ttf
+          font = ${pkgs.terminus_font_ttf}/share/fonts/truetype/TerminusTTF.ttf
         '';
       })
       config.az.core.users;

@@ -86,7 +86,7 @@ in {
           '';
         };
 
-        programs.kitty.settings.background_opacity = mkForce 0.9; # compensate for no blur
+        programs.kitty.settings.background_opacity = mkForce 0.95; # compensate for no blur
 
         programs.niri = {
           settings = rec {

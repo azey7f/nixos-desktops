@@ -16,27 +16,27 @@ in {
         programs.kitty = {
           enable = true;
           extraConfig = ''
-            map kitty_mod+o     next_tab
-            map kitty_mod+i     previous_tab
-            map kitty_mod+t     new_tab
+            map kitty_mod+o      next_tab
+            map kitty_mod+i      previous_tab
+            map kitty_mod+t      new_tab
             #map kitty_mod+q     close_tab
-            map kitty_mod+.     move_tab_forward
-            map kitty_mod+,     move_tab_backward
-            map kitty_mod+alt+t set_tab_title
+            map kitty_mod+.      move_tab_forward
+            map kitty_mod+,      move_tab_backward
+            map kitty_mod+alt+t  set_tab_title
 
             map kitty_mod+up        scroll_line_up
             map kitty_mod+k         scroll_line_up
             map kitty_mod+down      scroll_line_down
             map kitty_mod+j         scroll_line_down
-            map kitty_mod+u 	      scroll_page_up
-            map kitty_mod+d 	      scroll_page_down
+            map kitty_mod+u         scroll_page_up
+            map kitty_mod+d         scroll_page_down
             map kitty_mod+home      scroll_home
             map kitty_mod+end       scroll_end
             map kitty_mod+h         show_scrollback
           '';
           settings = {
-            font_family = "MesloLGS Nerd Font Mono";
-            font_size = 9.0;
+            font_family = "TerminusTTF";
+            font_size = 12.0;
 
             # vim:ft=kitty
 
@@ -80,7 +80,8 @@ in {
             # The 16 terminal colors
 
             # black
-            color0 = "#45475A";
+            color0 = "#40405A";
+            #color0 = "#45475A";
             color8 = "#585B70";
 
             # red
