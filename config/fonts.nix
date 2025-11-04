@@ -17,6 +17,7 @@ in {
       liberation_ttf
       terminus_font_ttf
       unifont
+      nerd-fonts.symbols-only
     ];
   in
     mkIf cfg.enable {

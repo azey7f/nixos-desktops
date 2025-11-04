@@ -111,9 +111,9 @@ in {
                 device = "intel_backlight";
                 format = "{icon} {percent}%";
                 format-icons = [
-                  ""
-                  ""
-                  ""
+                  "󰃞 "
+                  "󰃟 "
+                  "󰃠 "
                 ];
                 on-scroll-up = "brightnessctl set 1%+";
                 on-scroll-down = "brightnessctl set 1%-";
@@ -132,7 +132,7 @@ in {
               };
               pulseaudio = {
                 format = "{icon}  {volume}%  {format_source}";
-                format-muted = "ﱝ Muted";
+                format-muted = "󰝟  Muted";
                 format-source = "";
                 format-source-muted = "";
                 #TODO: on-click = "/home/main/.config/hypr/scripts/volume_ctl.sh mute";
@@ -144,7 +144,7 @@ in {
                   phone = "";
                   portable = "";
                   car = "";
-                  default = ["" "" "墳" ""];
+                  default = ["󰕿" "󰖀 " "󰕾 "];
                 };
               };
 
@@ -217,7 +217,7 @@ in {
                 exec = "cat /home/main/.kbd-pipe";
                 restart-interval = {
                 };
-                format = " {}";
+                format = "󰌌  {}";
               };A
               */
               /*
@@ -295,7 +295,7 @@ in {
                 format-charging = " {capacity}% {power}W";
                 format-plugged = " {capacity}% {power}W";
                 format-alt = "{time} {icon}";
-                format-icons = ["" "" "" "" "" "" "" "" "" "" ""];
+                format-icons = ["󰂃" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
               };
               clock = {
                 format = " {:%H:%M:%S   %Y-%m-%d}";
@@ -303,10 +303,10 @@ in {
                 interval = 1;
               };
               network = {
-                format-wifi = "直{essid}";
-                format-ethernet = " eth";
-                format-linked = "{ifname} (No IP) ";
-                format-disconnected = "睊 Disconnected";
+                format-wifi = "󰖩 {essid}";
+                format-ethernet = "󰈀  eth";
+                format-linked = "{ifname} (No IP) 󰈀 ";
+                format-disconnected = "󰖪  Disconnected";
                 tooltip-format-wifi = "Signal Strength: {signalStrength}% | Down Speed: {bandwidthDownBits}, Up Speed: {bandwidthUpBits}";
                 on-click = "iwgtk";
               };
@@ -339,7 +339,7 @@ in {
             }
 
             window#waybar {
-                background: rgba(30, 34, 42, 0.5);
+                background: rgba(30, 34, 42, 0.6);
                 color: #b4befe;
                 border: 1.5px solid;
                 border-radius: 10px;
@@ -348,7 +348,7 @@ in {
             }
 
             tooltip {
-                background: rgba(30, 34, 42, 0.7); /*#1e1e2e;*/
+                background: rgba(30, 34, 42, 0.8); /*#1e1e2e;*/
                 border-radius: 10px;
                 border-width: 2px;
                 border-style: solid;
