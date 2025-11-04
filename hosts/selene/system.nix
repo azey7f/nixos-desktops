@@ -17,6 +17,7 @@
     firmware.enable = true;
     boot.loader.grub.enable = true;
   };
+  az.svc.usbguard.allowAllPreconnected = true;
 
   az.desktop = {
     graphics.amdgpu.enable = true;

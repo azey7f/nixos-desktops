@@ -3,6 +3,7 @@ with lib; {
   security.unprivilegedUsernsClone = mkForce true; # steam, firefox, etc
   az.core = {
     hardening.malloc = mkDefault "libc"; # lots of desktop stuff breaks with hardened allocators
+    hardening.lockKmodules = mkDefault false; # mullvad VPN
     hardening.enabledModules = mkDefault ["ntfs"];
     hardening.enabledWrappers = [
       "unix_chkpwd" # password logins
@@ -19,7 +20,7 @@ with lib; {
   };
 
   az.svc.endlessh.enable = mkDefault true;
-  az.svc.usbguard.allowIO = mkDefault "first";
+  az.svc.usbguard.enable = mkForce false; # TODO
 
   az.desktop = {
     programs.enable = mkDefault true;

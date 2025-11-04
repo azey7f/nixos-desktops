@@ -18,7 +18,10 @@ in {
     steam.enable = optBool true;
     steam.openFirewall = optBool false;
     zerotier.enable = optBool false;
-    mullvad.enable = optBool true;
+    mullvad = {
+      enable = optBool true;
+      symlink = optStr "/home/main/.mullvad/mullvad-vpn";
+    };
 
     dev.enable = optBool true;
 
@@ -41,6 +44,7 @@ in {
 
     services.mullvad-vpn.enable = cfg.mullvad.enable;
     services.mullvad-vpn.enableExcludeWrapper = false;
+    environment.etc."mullvad-vpn".source = cfg.mullvad.symlink;
 
     programs.steam = mkIf cfg.steam.enable {
       enable = true;
