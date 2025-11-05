@@ -45,7 +45,7 @@ in {
       overrideStrategy = "asDropin";
       serviceConfig.ExecStart = [
         "" # override upstream default with an empty ExecStart
-        "@${pkgs.utillinux}/sbin/agetty agetty --login-program ${pkgs.shadow}/bin/login --autologin ${cfg.autoLogin.user} --noclear %I $TERM"
+        "@${pkgs.util-linux}/sbin/agetty agetty --login-program ${pkgs.shadow}/bin/login --autologin ${cfg.autoLogin.user} --noclear %I $TERM"
       ];
     };
   };

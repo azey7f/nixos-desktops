@@ -125,7 +125,7 @@ in {
           vlc
           #qalculate-qt
           speedcrunch
-          onlyoffice-bin
+          onlyoffice-desktopeditors
           moonlight-qt
           obsidian
           tenacity
@@ -140,7 +140,6 @@ in {
           wineWowPackages.waylandFull
           brightnessctl
           playerctl
-          kdePackages.xwaylandvideobridge
           nexusmods-app-unfree
           _7zz
           pinta

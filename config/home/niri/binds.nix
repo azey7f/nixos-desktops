@@ -31,7 +31,7 @@ in
     "Mod+Tab".action = toggle-overview;
 
     # system
-    "Print".action = screenshot;
+    "Print".action.screenshot = []; # https://github.com/sodiboo/niri-flake/issues/1380
     "Mod+X".action = let
       # lock
       message = lib.removeSuffix "\n" "${vlockCfg.ascii}${vlockCfg.message}";
