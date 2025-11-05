@@ -28,10 +28,7 @@
       path = ./hosts;
 
       channels.nixpkgs.ref = core.inputs.nixpkgs-unstable;
-      channels.nixpkgs.config = name: {
-        allowUnfree = true;
-        cudaSupport = name == "artemis";
-      };
+      channels.nixpkgs.config.allowUnfree = true;
 
       channels.home-manager.ref = core.inputs.home-manager-unstable;
 

@@ -14,7 +14,7 @@ in {
     niri-flake.cache.enable = false;
     programs.niri = {
       enable = true;
-      package = pkgs.niri-stable;
+      package = pkgs.niri; # force use nixpkgs version instead of the niri flake one
     };
   };
 }
