@@ -40,6 +40,8 @@ in {
       };
       autoLogin.user = "main";
     };
+
+    # home.librewolf.ublockPackage = pkgs.nur.repos.rycee.firefox-addons.adnauseam;
   };
 
   specialisation.Niri.configuration.az.desktop.environment.niri = let

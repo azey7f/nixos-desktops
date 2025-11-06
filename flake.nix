@@ -11,8 +11,8 @@
     niri.inputs.nixpkgs.follows = "core/nixpkgs-unstable";
 
     # ff extensions
-    ff-addons.url = "git+https://git.azey.net/mirrors/osipog--nix-firefox-addons?ref=main";
-    ff-addons.inputs.nixpkgs.follows = "core/nixpkgs-unstable";
+    nur.url = "git+https://git.azey.net/mirrors/nix-community--NUR";
+    nur.inputs.nixpkgs.follows = "core/nixpkgs-unstable";
   };
 
   outputs = {
@@ -36,7 +36,7 @@
 
       modules = [
         inputs.niri.nixosModules.niri
-        {nixpkgs.overlays = [inputs.ff-addons.overlays.default];}
+        {nixpkgs.overlays = [inputs.nur.overlays.default];}
         ./config
         ./services
         ./preset.nix
