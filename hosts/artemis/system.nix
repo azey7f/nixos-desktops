@@ -19,7 +19,6 @@ in {
   az.core = {
     firmware.enable = false;
     boot.loader.grub.enable = true;
-    net.systemdDefault = true;
   };
 
   az.desktop = {

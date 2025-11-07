@@ -17,6 +17,14 @@ with lib; {
       wheel = mkDefault true;
     };
     # per-host: boot.loader.<name>.enable = mkDefault true;
+
+    net.interfaces = mkDefault {
+      "wan" = {
+        name = ["enp*" "eno*" "eth*" "ens*"];
+        ipv4.dhcpClient = true;
+        ipv6.acceptRA = true;
+      };
+    };
   };
 
   az.svc.endlessh.enable = mkDefault true;
