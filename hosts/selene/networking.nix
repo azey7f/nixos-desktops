@@ -8,6 +8,7 @@
 
   systemd.network = {
     enable = true;
+    wait-online.anyInterface = true;
 
     netdevs."25-ethbr0".netdevConfig = {
       Name = "ethbr0";

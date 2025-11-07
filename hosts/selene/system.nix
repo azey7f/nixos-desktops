@@ -23,6 +23,7 @@
     graphics.amdgpu.enable = true;
 
     environment.autoLogin.user = "main";
+    programs.waybar.font = "Terminus (TTF)";
     programs.waybar.tempSensor = "/sys/class/hwmon/hwmon1/temp1_input";
 
     environment.niri = lib.mkIf (config.specialisation != {}) {

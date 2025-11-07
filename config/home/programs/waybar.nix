@@ -16,6 +16,8 @@ in {
       default = null;
     };
 
+    font = optStr "Unifont"; # terminus doesn't scale properly on 1080p
+
     margin = mkOpt types.numbers.nonnegative 0;
     modules = {
       left = mkOption {
@@ -333,7 +335,7 @@ in {
             * {
                 border: none;
                 border-radius: 0;
-                font-family: Unifont; /* terminus doesn't scale properly */
+                font-family: "${cfg.font}";
                 font-size: 12pt;
                 min-height: 0;
             }
