@@ -19,6 +19,19 @@ in {
   az.core = {
     firmware.enable = false;
     boot.loader.grub.enable = true;
+
+    net.interfaces = {
+      # use server's mullvad conns
+      "wan" = {
+        name = ["enp*" "eno*" "eth*" "ens*"];
+
+        ipv4.addr = "192.168.0.252";
+        ipv4.gateway = "192.168.0.254";
+
+        ipv6.addr = ["fd33:7b36:fc28:1000::2"];
+        ipv6.gateway = "fd33:7b36:fc28:1000::1";
+      };
+    };
   };
 
   az.desktop = {
