@@ -23,6 +23,7 @@ with lib; {
         name = ["enp*" "eno*" "eth*" "ens*"];
         ipv4.dhcpClient = true;
         ipv6.acceptRA = true;
+        ipv6.privacyExt = true;
       };
     };
   };
