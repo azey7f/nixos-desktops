@@ -36,7 +36,7 @@ in {
       powerManagement.finegrained = false; #TODO?
       nvidiaSettings = true;
 
-      open = false;
+      open = true;
       package = config.boot.kernelPackages.nvidiaPackages.latest;
 
       prime = mkIf cfg.prime.enable {
