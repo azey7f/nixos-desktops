@@ -118,11 +118,11 @@
         "xwayland-satellite-unstable": "xwayland-satellite-unstable"
       },
       "locked": {
-        "lastModified": 1762938849,
-        "narHash": "sha256-ltM04Wy+vMm/EAwhGTl2BYjCgF+Kq4lltpDH9NEh264=",
+        "lastModified": 1763126448,
+        "narHash": "sha256-LVYJJObvkWwR8QB/Srr6Rks+Fw2lYvnRNOH0etV9DM8=",
         "ref": "main",
-        "rev": "ea9b76cfa921d42a7502260b2d1296798089dfe6",
-        "revCount": 1705,
+        "rev": "add7bcf2925547e180cc2fe6d5f4b5e7c579d086",
+        "revCount": 1708,
         "type": "git",
         "url": "https://git.azey.net/mirrors/sodiboo--niri-flake"
       },
@@ -152,11 +152,11 @@
     "niri-unstable": {
       "flake": false,
       "locked": {
-        "lastModified": 1762881062,
-        "narHash": "sha256-j0Gxopn4jGYQae/90V2v4u4+Ec+gFLq3UbSaGfczpOM=",
+        "lastModified": 1763014447,
+        "narHash": "sha256-nmu7S8J9IJKLQyIkSU8QWYHygrfw76NHGTkcr+bXMX0=",
         "owner": "YaLTeR",
         "repo": "niri",
-        "rev": "5b77107161c504376b962107913bf74b575703e7",
+        "rev": "a52df533c4694b5ed0a04140af60fd26146df911",
         "type": "github"
       },
       "original": {
@@ -200,11 +200,11 @@
     },
     "nixpkgs-stable": {
       "locked": {
-        "lastModified": 1762756533,
-        "narHash": "sha256-HiRDeUOD1VLklHeOmaKDzf+8Hb7vSWPVFcWwaTrpm+U=",
+        "lastModified": 1763049705,
+        "narHash": "sha256-A5LS0AJZ1yDPTa2fHxufZN++n8MCmtgrJDtxFxrH4S8=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "c2448301fb856e351aab33e64c33a3fc8bcf637d",
+        "rev": "3acb677ea67d4c6218f33de0db0955f116b7588c",
         "type": "github"
       },
       "original": {
@@ -240,11 +240,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1762965738,
-        "narHash": "sha256-Qym2u7QBSHZQaWqgx0l+KbcICNo6j8uktdbEcOmMKac=",
+        "lastModified": 1763202374,
+        "narHash": "sha256-+odZy+C0qrAZQwndPSNuu1xzFP9jzm+5LbXle9W2OiM=",
         "ref": "refs/heads/main",
-        "rev": "13f214489440d0a3800a6a5f0b0bbfdd4bfe13d1",
-        "revCount": 36120,
+        "rev": "9db6dc06c41812884be2b0562c12dd4fe4e153b4",
+        "revCount": 36225,
         "type": "git",
         "url": "https://git.azey.net/mirrors/nix-community--NUR"
       },
