@@ -26,11 +26,17 @@
     neededForBoot = true;
   };
 
+  fileSystems."/swap" = {
+    device = "/dev/disk/by-label/ARTEMIS-ROOT";
+    fsType = "btrfs";
+    options = ["subvol=@swap"];
+  };
+
   fileSystems."/boot" = {
     device = "/dev/disk/by-label/ARTEMIS-EFI";
     fsType = "vfat";
     options = ["umask=007"];
   };
 
-  swapDevices = [];
+  swapDevices = [{device = "/swap/swap";}];
 }

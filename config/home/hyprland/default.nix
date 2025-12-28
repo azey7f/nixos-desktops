@@ -114,6 +114,8 @@ in {
           '';
         };
 
+        programs.kitty.settings.background_opacity = 0.75;
+
         home.sessionVariables.NIXOS_OZONE_WL = "1";
         #home.sessionVariables.HYPRCURSOR_THEME = "rose-pine-hyprcursor";
 

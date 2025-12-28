@@ -19,6 +19,9 @@ in {
         epson-escpr
       ];
     };
-    services.avahi.enable = true;
+    services.avahi = {
+      enable = true;
+      nssmdns4 = true; # Unable to locate printer "*.local"
+    };
   };
 }

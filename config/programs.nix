@@ -110,6 +110,7 @@ in {
         ++ [
           # misc
           tor
+          waypipe
 
           # desktop
           #sage
@@ -143,6 +144,7 @@ in {
           nexusmods-app-unfree
           _7zz
           pinta
+          krita
         ]
       );
   };

@@ -77,6 +77,11 @@ in {
                   definedAliases = ["@npi" "@nixpkgs"];
                   urls = [{template = "https://github.com/NixOS/nixpkgs/issues?q={searchTerms}";}];
                 };
+                nixpkgs-repo = {
+                  name = "nixpkgs-repo";
+                  definedAliases = ["@npr"];
+                  urls = [{template = "https://github.com/search?q=repo%3ANixOS%2Fnixpkgs%20{searchTerms}&type=code";}];
+                };
               };
 
               order = [

@@ -40,7 +40,7 @@ in {
 
             # vim:ft=kitty
 
-            background_opacity = 0.75;
+            background_opacity = lib.mkDefault 1;
             window_padding_width = 15;
             allow_remote_control = true;
             enable_audio_bell = false;
